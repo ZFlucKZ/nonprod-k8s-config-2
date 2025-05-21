@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+configMapGenerator:
+  - name: nestjs-api-config
+    namespace: develop
+    envs:
+      - ./nestjs-api/.env
+  - name: nextjs-app-config
+    namespace: develop
+    envs:
+      - ./nextjs-app/.env
+
+generatorOptions:
+  disableNameSuffixHash: true
